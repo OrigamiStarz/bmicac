@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet"/>
+    <script src="/script.js" defer></script>
+  </head>
+  <nav>
+    <button id = "help" style="float:right">?</button>
+    <div id="top">
+      <!-- logo/heading -->
+      <div id = "logoContainer">
+      <img id="logo" src="https://cdn.glitch.me/003f7267-64c1-41f0-82cc-6d6dd063dc47%2F8a8dc580-bd81-4726-a6f7-d3a18268723d.image.png?v=1635460438534"/>        
+      </div>
+      <!--SETTINGS for customization/themes-->
+      <button class="navbar" id="save">Save</button>
+      <button id="settings" class="navbar">Customize</button>
+      <div id="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Themes:</p>
+          <button id="seaTheme" class="theme">Down in the deep blue sea 🌊</button>
+          <button id="musicTheme" class="theme">Music 🎶</button>
+          <button id="springTheme" class="theme">Spring 🌸</button>
+          <button id="spookTheme" class="theme">Halloween 👻</button>
+          <button id="xmasTheme" class="theme">It's christmas! 🎄</button>
+        </div>
+      </div>
+    </div>
+    
+  </nav>
+  <!--TITLE-->
+  <h1>Inkquell</h1>
+  <body>
+    <!--MODAL to create canvas-->
+    <div id="menu">
+      <br>
+      <div id="content">
+        <br>
+        Canvas Width (px): <br>
+        <input id="inputwidth" type="number"><br><br>
+        Canvas Height (px): <br>
+        <input id="inputheight" type="number"><br><br>
+        Canvas Color: <input type="color" id="ccolor" value="#ffffff"><br><br><br>
+        <a class="button" id="toCanvas">Create Drawing</a><br><br>
+      </div>
+    </div>
+    <!--change brushes settings -->
+    <div id="brushSettings">
+      <div class="side" id="brush">
+        <p style="margin-top:0">
+          Brush:
+        </p>
+        <button id="prevBrush"><</button>
+        <span id="displayBrush">brush1</span>
+        <button id="nextBrush">></button>
+      </div>
+      <!--adjust width of brushes-->
+      <div class="side">
+        <label>Width</label>
+        <input
+          type="number"
+          min="1"
+          max="100"
+          id="customBrushWidth"
+          value="5"
+        />
+        <div id="widthContainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            class="slider"
+            id="brushWidth"
+            value="5"
+            width="100%"
+          />
+        </div>
+      </div>
+      <!--undo/redo/clear-->
+      <div class="side">
+        <button id="undo">
+          <img src="https://cdn.glitch.com/003f7267-64c1-41f0-82cc-6d6dd063dc47%2F9f925597-5d22-44d0-bc70-8b8d455f7b58.image.png?v=1617133348319" alt="Undo"/>
+        </button>
+        <button id="redo">
+          <img src="https://cdn.glitch.com/003f7267-64c1-41f0-82cc-6d6dd063dc47%2F4d14ec45-6063-41f5-8da7-6b8e8edddd64.image.png?v=1617133384969" alt="Redo"/>
+        </button>
+        <button id="clear">Clear</button>
+      </div>
+      <!--color palette-->
+      <div id="cp" class="side">
+        <div id="colorSettings">
+          <label>Color Palette</label>
+          <input type="color" id="color1" value="#000000" />
+          <button id="newColorButton" onclick="NewColor()">+</button>
+          <button id="editColors" onclick="editColorList()">Edit</button>
+          <p id = "inst">Click to delete colors.</p>
+        </div>
+      </div>
+    </div>
+    <!--CANVAS TOOLS/SETTINGS-->
+    <div id="drawing">
+      <canvas id="canvas">Sorry, Canvas does not work for this device. </canvas>
+    </div>
+  </body>
+</html>
